@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Guess the Number !</h2>
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+          <p class="card-text">Trouve le nombre généré par l'ordinateur entre 0 et 1000.</p>
+        </div>
+    </div>
+    <div>
+      <label>Ta supposition: </label>
+      <input type="number" [value]="guess" (input)="guess = $event.target.value" />
+      <button (click)="verifyGuess()" class="btn btn-primary btn-sm">Verifier</button>
+      <button (click)="initializeGame()" class="btn btn-warning btn-sm">Restart</button>
+    </div>
+    <div>
+      <p *ngIf="deviation<0" class="alert alert-warning">Ta suppostion est trop haute</p>
+      <p *ngIf="deviation>0" class="alert alert-warning">Ta suppostion est trop basse</p>
+      <p *ngIf="deviation===0" class="alert alert-success">Exact ! Bien joué !</p>
+    </div>
+    <p class="text-info">Nombre de ssuppostion :
+      <span class="badge">{{noOfTries}}</span>
+    </p>
+  </div>
+  
